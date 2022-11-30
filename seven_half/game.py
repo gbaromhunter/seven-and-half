@@ -1,5 +1,6 @@
 from seven_half.abc.counting_strategy import CountingStrategy
 
+
 class Card:
     ...
 
@@ -79,12 +80,12 @@ class Player:
         """
         Simulate a player's turn in a round.
 
-        This methods implements the player's decision logic, and is the primary interaction
+        This method implements the player's decision logic, and is the primary interaction
         method between the player and the game.
         """
         ...
     
-    def reset() -> None:
+    def reset(self) -> None:
         """
         Reset the player's attributes for a new round.
 
