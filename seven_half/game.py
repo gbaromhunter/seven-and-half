@@ -105,4 +105,9 @@ class Player:
 
 
 class Table:
-    ...
+    """Represent the table where the game happens."""
+
+    def __init__(self):
+        """Instantiate a new table."""
+        self._players: list[Player] = []
+
