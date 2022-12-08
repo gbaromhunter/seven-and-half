@@ -1,5 +1,3 @@
-from typing import List, Any
-
 from seven_half.abc.counting_strategy import CountingStrategy
 
 
@@ -15,8 +13,8 @@ class Player:
     """Represent a player at a sette e mezzo table."""
 
     def __init__(
-            self,
-            counting_strategy: CountingStrategy,
+        self,
+        counting_strategy: CountingStrategy,
     ):
         """Instantiate a new player."""
         self._hand: list[Card] = []
@@ -108,44 +106,76 @@ class Player:
 
 
 class Table:
-    """Represent the table where the game happens."""
+    """represent a sette e mezzo table."""
 
     def __init__(self, deck: Deck):
-        """Instantiate a new table."""
+        """instantiate a new table."""
         self._players: list[Player] = []
         self._score: dict[Player, int] = {}
         self._deck: Deck = deck
 
     def get_players(self) -> list[Player]:
-        """returns the list of players"""
-        return self._players
+        """
+        returns the list of players
+
+        this method is a getter of the list of players
+        """
+        ...
 
     def add_players(self, *players) -> None:
-        """add a player or multiple players"""
-        for player in players:
-            self._players.append(player)
+        """
+        add a player or multiple players
+
+        this method adds a single player, or multiple players to the table
+        """
+        ...
 
     def remove_players(self, *players) -> None:
-        """remove a player or multiple players"""
-        for player in players:
-            self._players.remove(player)
+        """
+        remove a player or multiple players
+
+        this method removes a single player, or multiple players to the tabl
+        """
+        ...
+
 
     def get_score(self) -> dict[Player, int]:
-        """returns the score as a dictionary"""
-        return self._score
+        """
+        returns the score as a dictionary
+
+        this method is a getter of the score, which is returned as a dictionary with a player as a key and an int as
+        value
+        """
+        ...
 
     def increase_score(self, player: Player, add: int) -> None:
-        """increase the score of a player by a certain amount"""
-        self._score[player] += add
+        """
+        increase the score of a player by a certain amount
+
+        this method increases the score of a player by the amount specified in the argument variable add
+        """
+        ...
 
     def reset_score(self) -> None:
-        """reset the score to zero"""
-        self._score = 0
+        """
+        reset the score to zero
+
+        this method resets the score to zero
+        """
+        ...
 
     def get_deck(self) -> Deck:
-        """returns the deck"""
-        return self._deck
+        """
+        returns the deck
+
+        this method is a getter of the deck asociated with this table
+        """
+        ...
 
     def get_cards_from_deck(self) -> Card:
-        """return the next card in the deck"""
-        yield from self._deck
+        """
+        return the next card in the deck
+
+        this method takes a card from the deck each time is called
+        """
+        ...
