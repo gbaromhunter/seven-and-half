@@ -1,3 +1,5 @@
+from typing import List, Any
+
 from seven_half.abc.counting_strategy import CountingStrategy
 
 
@@ -11,15 +13,16 @@ class Deck:
 
 class Player:
     """Represent a player at a sette e mezzo table."""
+
     def __init__(
-        self, 
-        counting_strategy: CountingStrategy,
+            self,
+            counting_strategy: CountingStrategy,
     ):
         """Instantiate a new player."""
         self._hand: list[Card] = []
         self._counting_strategy = counting_strategy
         self._table: Table = None
-        
+
         self.dealer = False
         self.bet_amount: float = 0.0
         self.lost = False
@@ -49,7 +52,7 @@ class Player:
         This method sets the Player object's lost attribute to True.
         """
         ...
-    
+
     def change_4_card(self) -> None:
         """
         Change the 4-card in player's hand for a new one.
@@ -67,7 +70,7 @@ class Player:
         wildcard in their hand. If the player does not have a wildcard, this method is ignored.
         """
         ...
-    
+
     def declare_loss(self) -> None:
         """
         Declare loss from exceeding 7.5 pts in a round.
@@ -84,7 +87,7 @@ class Player:
         method between the player and the game.
         """
         ...
-    
+
     def reset(self) -> None:
         """
         Reset the player's attributes for a new round.
@@ -107,7 +110,42 @@ class Player:
 class Table:
     """Represent the table where the game happens."""
 
-    def __init__(self):
+    def __init__(self, deck: Deck):
         """Instantiate a new table."""
         self._players: list[Player] = []
+        self._score: dict[Player, int] = {}
+        self._deck: Deck = deck
 
+    def get_players(self) -> list[Player]:
+        """returns the list of players"""
+        return self._players
+
+    def add_players(self, *players) -> None:
+        """add a player or multiple players"""
+        for player in players:
+            self._players.append(player)
+
+    def remove_players(self, *players) -> None:
+        """remove a player or multiple players"""
+        for player in players:
+            self._players.remove(player)
+
+    def get_score(self) -> dict[Player, int]:
+        """returns the score as a dictionary"""
+        return self._score
+
+    def increase_score(self, player: Player, add: int) -> None:
+        """increase the score of a player by a certain amount"""
+        self._score[player] += add
+
+    def reset_score(self) -> None:
+        """reset the score to zero"""
+        self._score = 0
+
+    def get_deck(self) -> Deck:
+        """returns the deck"""
+        return self._deck
+
+    def get_cards_from_deck(self) -> Card:
+        """return the next card in the deck"""
+        yield from self._deck
