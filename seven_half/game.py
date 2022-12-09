@@ -2,11 +2,49 @@ from seven_half.abc.counting_strategy import CountingStrategy
 
 
 class Card:
-    ...
+    """This class is to represent a card of a Neapolitan deck"""
+
+    def __init__(self, suit: str, number: int):
+        """instantiate a new card"""
+        self.suit: str = suit
+        self.number: int = number
+        self.value: float = number if number < 8 else 0.5
 
 
 class Deck:
-    ...
+    #     @attributes
+    #
+    #     _available_cards        -> list[Card]
+    #     _removed_cards          -> list[Card]
+    #
+    #     @methods
+    #
+    #     get_card()              -> list[Card]
+    #     reset_deck()            -> None
+    """This class represents a deck of Neapolitan cards. There are 4 seeds: Swords, Clubs, Coins, Cups and the
+    numbers are from 1 to 10. the values of the cards are 0.5 if 8, 9, 10 and their natural value if numbers from 1-7
+    the 10 of coins has a base value of 0.5 but can be worth whatever the owner decides."""
+
+    def __init__(self):
+        """Instantiate a Deck of neapolitan cards."""
+        self._available_cards: list[Card] = []
+        self._removed_cards: list [Card] = []
+
+    def get_card(self) -> list[Card]:
+        """
+        Returns a list of cards from the deck.
+
+        This method is a getter for the cards in the deck.
+        """
+        ...
+
+    def reset_deck(self) -> None:
+        """
+        Resets the deck
+
+        This method resets the deck to the original standard state.
+        """
+        ...
 
 
 class Player:
