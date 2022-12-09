@@ -110,7 +110,6 @@ class Table:
 
     def __init__(self, deck: Deck):
         """instantiate a new table."""
-        self._players: list[Player] = []
         self._score: dict[Player, int] = {}
         self._deck: Deck = deck
 
@@ -137,7 +136,6 @@ class Table:
         this method removes a single player, or multiple players to the tabl
         """
         ...
-
 
     def get_score(self) -> dict[Player, int]:
         """
@@ -179,3 +177,17 @@ class Table:
         this method takes a card from the deck each time is called
         """
         ...
+
+    def calculate_round_result(self) -> None:
+        """
+        evaluates the result of the round
+
+        this method calculates the round result in order to keep track of the score
+        """
+
+    def new_round(self) -> None:
+        """
+        initiates a new round
+
+        this methods is used to start a new round of sette e mezzo
+        """
