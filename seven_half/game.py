@@ -19,7 +19,7 @@ class Deck:
     def __init__(self):
         """Instantiate a Deck of neapolitan cards."""
         self._available_cards: list[Card] = []
-        self._removed_cards: list [Card] = []
+        self._removed_cards: list[Card] = []
 
     def get_card(self) -> list[Card]:
         """
