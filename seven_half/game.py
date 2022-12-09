@@ -12,15 +12,6 @@ class Card:
 
 
 class Deck:
-    #     @attributes
-    #
-    #     _available_cards        -> list[Card]
-    #     _removed_cards          -> list[Card]
-    #
-    #     @methods
-    #
-    #     get_card()              -> list[Card]
-    #     reset_deck()            -> None
     """This class represents a deck of Neapolitan cards. There are 4 seeds: Swords, Clubs, Coins, Cups and the
     numbers are from 1 to 10. the values of the cards are 0.5 if 8, 9, 10 and their natural value if numbers from 1-7
     the 10 of coins has a base value of 0.5 but can be worth whatever the owner decides."""
