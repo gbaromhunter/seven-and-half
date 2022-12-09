@@ -106,17 +106,16 @@ class Player:
 
 
 class Table:
-    """represent a sette e mezzo table."""
+    """Represent a sette e mezzo table."""
 
     def __init__(self, deck: Deck):
-        """instantiate a new table."""
-        self._players: list[Player] = []
+        """Instantiate a new table."""
         self._score: dict[Player, int] = {}
         self._deck: Deck = deck
 
     def get_players(self) -> list[Player]:
         """
-        returns the list of players
+        Returns the list of players
 
         this method is a getter of the list of players
         """
@@ -124,58 +123,71 @@ class Table:
 
     def add_players(self, *players) -> None:
         """
-        add a player or multiple players
+        Add a player or multiple players
 
-        this method adds a single player, or multiple players to the table
+        This method adds a single player, or multiple players to the table
         """
         ...
 
     def remove_players(self, *players) -> None:
         """
-        remove a player or multiple players
+        Remove a player or multiple players
 
-        this method removes a single player, or multiple players to the tabl
+        This method removes a single player, or multiple players to the tabl
         """
         ...
 
-
     def get_score(self) -> dict[Player, int]:
         """
-        returns the score as a dictionary
+        Returns the score as a dictionary
 
-        this method is a getter of the score, which is returned as a dictionary with a player as a key and an int as
+        This method is a getter of the score, which is returned as a dictionary with a player as a key and an int as
         value
         """
         ...
 
     def increase_score(self, player: Player, add: int) -> None:
         """
-        increase the score of a player by a certain amount
+        Increase the score of a player by a certain amount
 
-        this method increases the score of a player by the amount specified in the argument variable add
+        This method increases the score of a player by the amount specified in the argument variable add
         """
         ...
 
     def reset_score(self) -> None:
         """
-        reset the score to zero
+        Reset the score to zero
 
-        this method resets the score to zero
+        This method resets the score to zero
         """
         ...
 
     def get_deck(self) -> Deck:
         """
-        returns the deck
+        Returns the deck
 
-        this method is a getter of the deck asociated with this table
+        This method is a getter of the deck asociated with this table
         """
         ...
 
     def get_cards_from_deck(self) -> Card:
         """
-        return the next card in the deck
+        Return the next card in the deck
 
-        this method takes a card from the deck each time is called
+        This method takes a card from the deck each time is called
         """
         ...
+
+    def calculate_round_result(self) -> None:
+        """
+        Evaluates the result of the round
+
+        This method calculates the round result in order to keep track of the score
+        """
+
+    def new_round(self) -> None:
+        """
+        Initiates a new round
+
+        This methods is used to start a new round of sette e mezzo
+        """
